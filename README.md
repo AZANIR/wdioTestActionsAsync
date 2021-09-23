@@ -1,6 +1,6 @@
 # e2e-tests WebdriwerIO
 
-e2e-test for WebdriwerIO applications
+e2e-test for WebdriwerIO applications async-await mode
 ## Setup
 
 ### Install software and check out the project
