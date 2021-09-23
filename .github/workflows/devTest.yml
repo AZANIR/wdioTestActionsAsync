@@ -2,7 +2,7 @@ name: Test and create report
 
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
   # pull_request:
   #   branches: [ master ]
 
@@ -58,7 +58,7 @@ jobs:
       if: always()
       with:
         ACCESS_TOKEN: ${{'secrets.ACCESS_TOKEN'}}
-        BRANCH: main # The branch the action should deploy to.
+        BRANCH: master # The branch the action should deploy to.
         FOLDER: allure-report # The folder the action should deploy.
         TARGET_FOLDER: docs
       # If your repo is private and you want upload your report to another repo uncomment and set credential 
