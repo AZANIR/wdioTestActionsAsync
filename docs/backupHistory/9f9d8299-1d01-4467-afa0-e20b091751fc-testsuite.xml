@@ -1,0 +1,21 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1632379850670' stop='1632379850925'>
+    <name>Verify broken images</name>
+    <title>Verify broken images</title>
+    <test-cases>
+        <test-case start='1632379850670' status='passed' stop='1632379850924'>
+            <name>Verify Title</name>
+            <title>Verify Title</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-2'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-93.0.4577.63'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

@@ -1,0 +1,58 @@
+{
+  "uid" : "52e680616164ab39",
+  "name" : "Remove element",
+  "fullName" : "Verify Add Remove elements.Remove element",
+  "historyId" : "17fb8dd153a70c3b0d36d426a8c5c98a",
+  "time" : {
+    "start" : 1632379851151,
+    "stop" : 1632379852294,
+    "duration" : 1143
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "framework",
+    "value" : "wdio"
+  }, {
+    "name" : "language",
+    "value" : "javascript"
+  }, {
+    "name" : "thread",
+    "value" : "0-0"
+  }, {
+    "name" : "suite",
+    "value" : "Verify Add Remove elements"
+  }, {
+    "name" : "testClass",
+    "value" : "Verify Add Remove elements"
+  }, {
+    "name" : "testMethod",
+    "value" : "Remove element"
+  }, {
+    "name" : "package",
+    "value" : "Verify Add Remove elements"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ {
+    "name" : "browser",
+    "value" : "chrome-93.0.4577.63"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "52e680616164ab39.json",
+  "parameterValues" : [ "chrome-93.0.4577.63" ]
+}

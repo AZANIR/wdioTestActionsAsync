@@ -1,0 +1,142 @@
+{
+  "uid" : "98d3104e051c652961429bf95fa0b5d6",
+  "children" : [ {
+    "name" : "Basic Auth in modal",
+    "children" : [ {
+      "name" : "Login with correct credential",
+      "uid" : "3f51fa1ad8df2add",
+      "parentUid" : "6bffc5c3b702dcd09ad58c584e2b28e2",
+      "status" : "passed",
+      "time" : {
+        "start" : 1632379850209,
+        "stop" : 1632379850798,
+        "duration" : 589
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "chrome-93.0.4577.63" ]
+    } ],
+    "uid" : "6bffc5c3b702dcd09ad58c584e2b28e2"
+  }, {
+    "name" : "Check login page defaults",
+    "children" : [ {
+      "name" : "Check h2 header displayed",
+      "uid" : "fb9eb5dfb2d62727",
+      "parentUid" : "c3c13aa5235e1b95fa6d6bd3c3a89744",
+      "status" : "passed",
+      "time" : {
+        "start" : 1632379850643,
+        "stop" : 1632379850864,
+        "duration" : 221
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "chrome-93.0.4577.63" ]
+    }, {
+      "name" : "Ispect footer text",
+      "uid" : "d08574ae12ffc7d5",
+      "parentUid" : "c3c13aa5235e1b95fa6d6bd3c3a89744",
+      "status" : "passed",
+      "time" : {
+        "start" : 1632379850865,
+        "stop" : 1632379850976,
+        "duration" : 111
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "chrome-93.0.4577.63" ]
+    }, {
+      "name" : "Verify Footer link",
+      "uid" : "204f851602817cdf",
+      "parentUid" : "c3c13aa5235e1b95fa6d6bd3c3a89744",
+      "status" : "passed",
+      "time" : {
+        "start" : 1632379850976,
+        "stop" : 1632379851093,
+        "duration" : 117
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "chrome-93.0.4577.63" ]
+    } ],
+    "uid" : "c3c13aa5235e1b95fa6d6bd3c3a89744"
+  }, {
+    "name" : "Check Add Remove elements page defaults",
+    "children" : [ {
+      "name" : "Check h3 header displayed",
+      "uid" : "f69b2ca736e72374",
+      "parentUid" : "68a2d0c32feaeeb750c4983b2abe9791",
+      "status" : "passed",
+      "time" : {
+        "start" : 1632379850667,
+        "stop" : 1632379850872,
+        "duration" : 205
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "chrome-93.0.4577.63" ]
+    }, {
+      "name" : "Verify Add button",
+      "uid" : "6291164fb34f16c4",
+      "parentUid" : "68a2d0c32feaeeb750c4983b2abe9791",
+      "status" : "passed",
+      "time" : {
+        "start" : 1632379850873,
+        "stop" : 1632379850929,
+        "duration" : 56
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "chrome-93.0.4577.63" ]
+    } ],
+    "uid" : "68a2d0c32feaeeb750c4983b2abe9791"
+  }, {
+    "name" : "Verify broken images",
+    "children" : [ {
+      "name" : "Verify Title",
+      "uid" : "f5e5d293255c901e",
+      "parentUid" : "b905db4002c8c6dda459b8aae2298723",
+      "status" : "passed",
+      "time" : {
+        "start" : 1632379850670,
+        "stop" : 1632379850924,
+        "duration" : 254
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "chrome-93.0.4577.63" ]
+    } ],
+    "uid" : "b905db4002c8c6dda459b8aae2298723"
+  }, {
+    "name" : "Verify Add Remove elements",
+    "children" : [ {
+      "name" : "Add element",
+      "uid" : "aadd4c290f22f24a",
+      "parentUid" : "6121e9287cbfa25d4a6d00f6ef251f07",
+      "status" : "passed",
+      "time" : {
+        "start" : 1632379850940,
+        "stop" : 1632379851151,
+        "duration" : 211
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "chrome-93.0.4577.63" ]
+    }, {
+      "name" : "Remove element",
+      "uid" : "52e680616164ab39",
+      "parentUid" : "6121e9287cbfa25d4a6d00f6ef251f07",
+      "status" : "passed",
+      "time" : {
+        "start" : 1632379851151,
+        "stop" : 1632379852294,
+        "duration" : 1143
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "chrome-93.0.4577.63" ]
+    } ],
+    "uid" : "6121e9287cbfa25d4a6d00f6ef251f07"
+  } ],
+  "name" : "suites"
+}

@@ -1,0 +1,142 @@
+{
+  "uid" : "83edc06c07f9ae9e47eb6dd1b683e4e2",
+  "children" : [ {
+    "name" : "Basic Auth in modal",
+    "children" : [ {
+      "name" : "Login with correct credential",
+      "uid" : "3f51fa1ad8df2add",
+      "parentUid" : "c47f1660144f54574e125bd37e0aec6c",
+      "status" : "passed",
+      "time" : {
+        "start" : 1632379850209,
+        "stop" : 1632379850798,
+        "duration" : 589
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "chrome-93.0.4577.63" ]
+    } ],
+    "uid" : "c47f1660144f54574e125bd37e0aec6c"
+  }, {
+    "name" : "Check login page defaults",
+    "children" : [ {
+      "name" : "Check h2 header displayed",
+      "uid" : "fb9eb5dfb2d62727",
+      "parentUid" : "d62eca238bae9a7df65352f607ff48a6",
+      "status" : "passed",
+      "time" : {
+        "start" : 1632379850643,
+        "stop" : 1632379850864,
+        "duration" : 221
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "chrome-93.0.4577.63" ]
+    }, {
+      "name" : "Ispect footer text",
+      "uid" : "d08574ae12ffc7d5",
+      "parentUid" : "d62eca238bae9a7df65352f607ff48a6",
+      "status" : "passed",
+      "time" : {
+        "start" : 1632379850865,
+        "stop" : 1632379850976,
+        "duration" : 111
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "chrome-93.0.4577.63" ]
+    }, {
+      "name" : "Verify Footer link",
+      "uid" : "204f851602817cdf",
+      "parentUid" : "d62eca238bae9a7df65352f607ff48a6",
+      "status" : "passed",
+      "time" : {
+        "start" : 1632379850976,
+        "stop" : 1632379851093,
+        "duration" : 117
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "chrome-93.0.4577.63" ]
+    } ],
+    "uid" : "d62eca238bae9a7df65352f607ff48a6"
+  }, {
+    "name" : "Check Add Remove elements page defaults",
+    "children" : [ {
+      "name" : "Check h3 header displayed",
+      "uid" : "f69b2ca736e72374",
+      "parentUid" : "8f5061d58a3b7e3972cf843298ef82b7",
+      "status" : "passed",
+      "time" : {
+        "start" : 1632379850667,
+        "stop" : 1632379850872,
+        "duration" : 205
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "chrome-93.0.4577.63" ]
+    }, {
+      "name" : "Verify Add button",
+      "uid" : "6291164fb34f16c4",
+      "parentUid" : "8f5061d58a3b7e3972cf843298ef82b7",
+      "status" : "passed",
+      "time" : {
+        "start" : 1632379850873,
+        "stop" : 1632379850929,
+        "duration" : 56
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "chrome-93.0.4577.63" ]
+    } ],
+    "uid" : "8f5061d58a3b7e3972cf843298ef82b7"
+  }, {
+    "name" : "Verify broken images",
+    "children" : [ {
+      "name" : "Verify Title",
+      "uid" : "f5e5d293255c901e",
+      "parentUid" : "a3a1001c4deebe7086ecf42547ee7400",
+      "status" : "passed",
+      "time" : {
+        "start" : 1632379850670,
+        "stop" : 1632379850924,
+        "duration" : 254
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "chrome-93.0.4577.63" ]
+    } ],
+    "uid" : "a3a1001c4deebe7086ecf42547ee7400"
+  }, {
+    "name" : "Verify Add Remove elements",
+    "children" : [ {
+      "name" : "Add element",
+      "uid" : "aadd4c290f22f24a",
+      "parentUid" : "1e068c3141ef4a1865cff5f8afd7da36",
+      "status" : "passed",
+      "time" : {
+        "start" : 1632379850940,
+        "stop" : 1632379851151,
+        "duration" : 211
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "chrome-93.0.4577.63" ]
+    }, {
+      "name" : "Remove element",
+      "uid" : "52e680616164ab39",
+      "parentUid" : "1e068c3141ef4a1865cff5f8afd7da36",
+      "status" : "passed",
+      "time" : {
+        "start" : 1632379851151,
+        "stop" : 1632379852294,
+        "duration" : 1143
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "chrome-93.0.4577.63" ]
+    } ],
+    "uid" : "1e068c3141ef4a1865cff5f8afd7da36"
+  } ],
+  "name" : "packages"
+}
