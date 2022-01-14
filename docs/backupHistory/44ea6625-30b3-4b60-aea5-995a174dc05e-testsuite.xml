@@ -1,0 +1,35 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1642147683700' stop='1642147685619'>
+    <name>Verify Add Remove elements</name>
+    <title>Verify Add Remove elements</title>
+    <test-cases>
+        <test-case start='1642147683701' status='passed' stop='1642147684383'>
+            <name>Add element</name>
+            <title>Add element</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-97.0.4692.71'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1642147684384' status='passed' stop='1642147685619'>
+            <name>Remove element</name>
+            <title>Remove element</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-97.0.4692.71'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

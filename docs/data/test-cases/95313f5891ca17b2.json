@@ -1,0 +1,77 @@
+{
+  "uid" : "95313f5891ca17b2",
+  "name" : "Ispect footer text",
+  "fullName" : "Check login page defaults.Ispect footer text",
+  "historyId" : "5fc41e91405b701ec0b41f1c94143813",
+  "time" : {
+    "start" : 1632379850865,
+    "stop" : 1632379850976,
+    "duration" : 111
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "framework",
+    "value" : "wdio"
+  }, {
+    "name" : "language",
+    "value" : "javascript"
+  }, {
+    "name" : "thread",
+    "value" : "0-3"
+  }, {
+    "name" : "suite",
+    "value" : "Check login page defaults"
+  }, {
+    "name" : "testClass",
+    "value" : "Check login page defaults"
+  }, {
+    "name" : "testMethod",
+    "value" : "Ispect footer text"
+  }, {
+    "name" : "package",
+    "value" : "Check login page defaults"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ {
+    "name" : "browser",
+    "value" : "chrome-93.0.4577.63"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 2,
+        "unknown" : 0,
+        "total" : 2
+      },
+      "items" : [ {
+        "uid" : "d08574ae12ffc7d5",
+        "status" : "passed",
+        "time" : {
+          "start" : 1632379850865,
+          "stop" : 1632379850976,
+          "duration" : 111
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "95313f5891ca17b2.json",
+  "parameterValues" : [ "chrome-93.0.4577.63" ]
+}
