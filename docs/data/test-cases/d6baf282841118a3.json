@@ -1,0 +1,56 @@
+{
+  "uid" : "d6baf282841118a3",
+  "name" : "Ispect footer text",
+  "fullName" : "Check login page defaults.Ispect footer text",
+  "historyId" : "269a2474522974cb401bbface8d4e7a1",
+  "time" : {
+    "start" : 1649330235543,
+    "stop" : 1649330235737,
+    "duration" : 194
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "framework",
+    "value" : "wdio"
+  }, {
+    "name" : "language",
+    "value" : "javascript"
+  }, {
+    "name" : "thread",
+    "value" : "0-3"
+  }, {
+    "name" : "suite",
+    "value" : "Check login page defaults"
+  }, {
+    "name" : "testClass",
+    "value" : "Check login page defaults"
+  }, {
+    "name" : "testMethod",
+    "value" : "Ispect footer text"
+  }, {
+    "name" : "package",
+    "value" : "Check login page defaults"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ {
+    "name" : "browser",
+    "value" : "chrome-100.0.4896.60"
+  } ],
+  "links" : [ ],
+  "hidden" : true,
+  "retry" : true,
+  "extra" : {
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "d6baf282841118a3.json",
+  "parameterValues" : [ "chrome-100.0.4896.60" ]
+}

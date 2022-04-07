@@ -1,0 +1,77 @@
+{
+  "uid" : "f675faaad67034cd",
+  "name" : "Check h3 header displayed",
+  "fullName" : "Check Add Remove elements page defaults.Check h3 header displayed",
+  "historyId" : "1022786f4c5e0b9f96be9b79336a077a",
+  "time" : {
+    "start" : 1642147683273,
+    "stop" : 1642147683547,
+    "duration" : 274
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "framework",
+    "value" : "wdio"
+  }, {
+    "name" : "language",
+    "value" : "javascript"
+  }, {
+    "name" : "thread",
+    "value" : "0-0"
+  }, {
+    "name" : "suite",
+    "value" : "Check Add Remove elements page defaults"
+  }, {
+    "name" : "testClass",
+    "value" : "Check Add Remove elements page defaults"
+  }, {
+    "name" : "testMethod",
+    "value" : "Check h3 header displayed"
+  }, {
+    "name" : "package",
+    "value" : "Check Add Remove elements page defaults"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ {
+    "name" : "browser",
+    "value" : "chrome-97.0.4692.71"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 2,
+        "unknown" : 0,
+        "total" : 2
+      },
+      "items" : [ {
+        "uid" : "b405a5281429084",
+        "status" : "passed",
+        "time" : {
+          "start" : 1642147683273,
+          "stop" : 1642147683547,
+          "duration" : 274
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "f675faaad67034cd.json",
+  "parameterValues" : [ "chrome-97.0.4692.71" ]
+}

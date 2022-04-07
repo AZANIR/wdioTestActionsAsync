@@ -1,0 +1,21 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1649330234578' stop='1649330235822'>
+    <name>Basic Auth in modal</name>
+    <title>Basic Auth in modal</title>
+    <test-cases>
+        <test-case start='1649330234578' status='passed' stop='1649330235814'>
+            <name>Login with correct credential</name>
+            <title>Login with correct credential</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-1'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-100.0.4896.60'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

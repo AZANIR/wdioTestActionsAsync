@@ -1,0 +1,85 @@
+{
+  "uid" : "f87965b219fa33f2",
+  "name" : "Verify Footer link",
+  "fullName" : "Check login page defaults.Verify Footer link",
+  "historyId" : "82b9e8b7ef73050e8378d3a83652020b",
+  "time" : {
+    "start" : 1632379850976,
+    "stop" : 1632379851093,
+    "duration" : 117
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "framework",
+    "value" : "wdio"
+  }, {
+    "name" : "language",
+    "value" : "javascript"
+  }, {
+    "name" : "thread",
+    "value" : "0-3"
+  }, {
+    "name" : "suite",
+    "value" : "Check login page defaults"
+  }, {
+    "name" : "testClass",
+    "value" : "Check login page defaults"
+  }, {
+    "name" : "testMethod",
+    "value" : "Verify Footer link"
+  }, {
+    "name" : "package",
+    "value" : "Check login page defaults"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ {
+    "name" : "browser",
+    "value" : "chrome-93.0.4577.63"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 3,
+        "unknown" : 0,
+        "total" : 3
+      },
+      "items" : [ {
+        "uid" : "98a28e9de806c518",
+        "status" : "passed",
+        "time" : {
+          "start" : 1632379850976,
+          "stop" : 1632379851093,
+          "duration" : 117
+        }
+      }, {
+        "uid" : "204f851602817cdf",
+        "status" : "passed",
+        "time" : {
+          "start" : 1632379850976,
+          "stop" : 1632379851093,
+          "duration" : 117
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "f87965b219fa33f2.json",
+  "parameterValues" : [ "chrome-93.0.4577.63" ]
+}
