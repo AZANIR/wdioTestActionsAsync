@@ -4,5 +4,5 @@ services:
     build:
       context: ./
     volumes:
-        - './reports:/allure-reports'
+        - './reports:/allure-report'
     command: sh -c "npm run test:chrome:headless:ui || true && npm run allure:generate || true"
