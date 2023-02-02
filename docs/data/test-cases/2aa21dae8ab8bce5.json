@@ -1,0 +1,77 @@
+{
+  "uid" : "2aa21dae8ab8bce5",
+  "name" : "Login with correct credential",
+  "fullName" : "Basic Auth in modal.Login with correct credential",
+  "historyId" : "80ccd7b58ff5caa8ebe906123a2b7ec7",
+  "time" : {
+    "start" : 1642147682552,
+    "stop" : 1642147684144,
+    "duration" : 1592
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "framework",
+    "value" : "wdio"
+  }, {
+    "name" : "language",
+    "value" : "javascript"
+  }, {
+    "name" : "thread",
+    "value" : "0-1"
+  }, {
+    "name" : "suite",
+    "value" : "Basic Auth in modal"
+  }, {
+    "name" : "testClass",
+    "value" : "Basic Auth in modal"
+  }, {
+    "name" : "testMethod",
+    "value" : "Login with correct credential"
+  }, {
+    "name" : "package",
+    "value" : "Basic Auth in modal"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ {
+    "name" : "browser",
+    "value" : "chrome-97.0.4692.71"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 2,
+        "unknown" : 0,
+        "total" : 2
+      },
+      "items" : [ {
+        "uid" : "e0ca10787c3a708e",
+        "status" : "passed",
+        "time" : {
+          "start" : 1642147682552,
+          "stop" : 1642147684144,
+          "duration" : 1592
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "2aa21dae8ab8bce5.json",
+  "parameterValues" : [ "chrome-97.0.4692.71" ]
+}
