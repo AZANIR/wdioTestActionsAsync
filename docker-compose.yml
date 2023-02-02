@@ -1,0 +1,8 @@
+version: '3'
+services:
+  test:
+    build:
+      context: ./
+    volumes:
+        - './reports:/allure-reports'
+    command: sh -c "npm run test:chrome:headless:ui || true && npm run allure:generate || true"
