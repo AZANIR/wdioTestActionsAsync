@@ -1,20 +1,19 @@
-const {config} = require("./wdio.conf");
-require("path");
+const { config } = require("./wdio.conf");
+
 const chromeHeadlessConfig = {
     ...config,
-    services: [['selenium-standalone', {chrome: 'latest'}]], // https://chromedriver.chromium.org/
-    //services: ["chromedriver"],
+    // services: [['selenium-standalone', { chrome: 'latest' }]],
+    services: [['chromedriver', {chrome: 'latest'}]],
     capabilities: [{
-        maxInstances: 5,
+        maxInstances: 3,
         browserName: "chrome",
         'goog:chromeOptions': {
-            args: ['--headless', '--start-maximized', '--no-sandbox', '--disable-gpu', '--window-size=1280,800', '--allow-insecure-localhost']
+            args: ['--headless','--start-maximized', '--no-sandbox', '--disable-gpu','--disable-dev-shm-usage','--window-size=1900,1000', '--allow-insecure-localhost', '--ignore-certificate-errors'],
+            excludeSwitches: ['--enable-logging']
         },
     }],
     logLevel: 'warn',
-
     path: "/wd/hub",
-
 };
 
 exports.config = chromeHeadlessConfig;

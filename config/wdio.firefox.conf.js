@@ -4,10 +4,12 @@ const {
 
 const firefoxConfig = {
     ...config,
-    services: [['selenium-standalone', {firefox: 'latest'}]], // https://github.com/mozilla/geckodriver/releases
+    // services: [['selenium-standalone', {firefox: 'latest'}]], // https://github.com/mozilla/geckodriver/releases
+    services: [['geckodriver', {firefox: 'latest'}]],
     capabilities: [{
         maxInstances: 1,
         browserName: "firefox",
+        acceptInsecureCerts : true,
         'moz:firefoxOptions': {
             args: ["--width=1900",
                 "--height=1000"]

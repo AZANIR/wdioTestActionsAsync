@@ -2,12 +2,13 @@ const {config} = require("./wdio.conf");
 require("path");
 const chromeHeadlessConfig = {
     ...config,
-    services: [['selenium-standalone', {chromiumedge: 'latest'}]], // https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/
+    services: [['edgedriver', {chromiumedge: 'latest'}]], // https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/
     capabilities: [{
         maxInstances: 2,
         browserName: "MicrosoftEdge",
         'ms:edgeOptions': {
-            args: ['--headless', '--start-maximized', '--no-sandbox', '--disable-gpu', '--window-size=1280,800', '--allow-insecure-localhost']
+            args: ['--headless','--start-maximized', '--no-sandbox', '--disable-gpu','--disable-dev-shm-usage','--window-size=1900,1000', '--allow-insecure-localhost', '--ignore-certificate-errors'],
+            excludeSwitches: ['--enable-logging']
         },
     }],
     logLevel: 'warn',

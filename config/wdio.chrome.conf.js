@@ -1,18 +1,17 @@
-const {
-    config
-} = require("./wdio.conf");
+const {config} = require("./wdio.conf");
 
 const chromeConfig = {
     ...config,
-    services: [['selenium-standalone', {chrome: 'latest'}]], // https://chromedriver.chromium.org/
-    //services: ["chromedriver"],
+    services: [['chromedriver', {chrome: 'latest'}]],
+    // services: [['selenium-standalone', { chrome: 'latest' }]],
     capabilities: [{
-        maxInstances: 10,
+        maxInstances: 3,
         browserName: "chrome",
         'goog:chromeOptions': {
-            args: ['--start-maximized']
+            args: ['--start-maximized', '--no-sandbox', '--disable-gpu','--disable-dev-shm-usage','--window-size=1900,1000', '--allow-insecure-localhost','--ignore-certificate-errors'],
+            excludeSwitches: ['--enable-logging']
         },
-    }, ],
+    }],
     path: "/wd/hub",
 };
 

@@ -1,106 +1,74 @@
-const exec = require('child_process').exec;
-const allure = require('allure-commandline');
+// const video = require('wdio-video-reporter');
 
 exports.config = {
-    runner: 'local',
+    //
     specs: [
-        './test/specs/**/*.spec.js',
-        //'./test/specs/structure/StructureProperties.spec.js'
+        './test/specs/**/*.spec.js'
     ],
     suites: {
         superuser: [
-            './test/specs/**/*.spec.js',
+            './test/specs/**/*.spec.js'
         ],
-        user: [
-            './test/specs/**/*.spec.js',
+        testAdmin: [
+            './test/specs/**/*.spec.js'
         ]
     },
     // Patterns to exclude.
     exclude: [
-        // 'path/to/excluded/files'
+        // 'path/to/excluded/002_Files'
     ],
-    maxInstances: 5,
+    maxInstances: 10,
     capabilities: [{
-        maxInstances: 1,
+        maxInstances: 5,
         browserName: 'chrome',
-        acceptInsecureCerts: true
-    },
+        acceptInsecureCerts: true},
         {
-            maxInstances: 1,
-            browserName: 'firefox',
-        }
+        maxInstances: 5,
+        browserName: 'firefox',
+        acceptInsecureCerts: true},
     ],
     // Level of logging verbosity: trace | debug | info | warn | error | silent
-    logLevel: 'warn',
+    logLevel: 'error',
     bail: 0,
     baseUrl: 'http://localhost',
-    waitforTimeout: 20000,
-    connectionRetryTimeout: 90000,
-    connectionRetryCount: 3,
-    services: [
-        ['chromedriver'],
-        ['firefox-profile'],
-        ['MicrosoftEdge']
-    ],
+    waitforTimeout: 10000,
+    connectionRetryTimeout: 60000,
+    connectionRetryCount: 2,
+    services: ['chromedriver','geckodriver','edgedriver','crossbrowsertesting'],
     framework: 'mocha',
-    // reporters: ['spec'],
-    reporters: [['allure', {
-        outputDir: 'allure-results',
-        disableWebdriverStepsReporting: true,
-        disableWebdriverScreenshotsReporting: false,
-    }], 'spec'],
-
-    //
-    // Options to be passed to Mocha.
-    // See the full list at http://mochajs.org/
+    reporters: [
+        // [video, {
+        //     outputDir: 'allure-results',
+        //     saveAllVideos: false,       // If true, also saves videos for successful test cases
+        //     videoSlowdownMultiplier: 3, // Higher to get slower videos, lower for faster videos [Value 1-100]
+        // }],
+        ['allure', {
+            outputDir: 'allure-results',
+            disableWebdriverStepsReporting: true,
+            disableWebdriverScreenshotsReporting: true,
+        }],
+        'spec'],
     mochaOpts: {
         ui: 'bdd',
-        timeout: 60000 // 20 min
+        timeout: 120000
     },
+
     // =====
     // Hooks
     // =====
-
-    beforeSession: function (config, capabilities, specs) {
-    },
-    beforeSession() { // before hook works as well
+    beforeSession: async function () {
         require('expect-webdriverio').setOptions({
             wait: 5000
-        })
+        });
     },
-    before: async function (capabilities, specs) {
-        await browser.setTimeout({ 'pageLoad': 20000 })
+    before: async function (capabilities, specs, browser) {
+        await browser.setWindowSize(1920, 1080);
+        // await browser.setTimeout({ 'pageLoad': 35000 });
     },
-    afterTest: async function(test, context, { error, result, duration, passed, retries }) {
+    afterTest: async function(test, context, { error}) {
         if (error) {
             await browser.takeScreenshot();
+            //todo add info about broken tests
         }
-    },
-    // afterStep: function (test, scenario, { error, duration, passed }) {
-    //     browser.takeScreenshot();
-    // },
-
-    // onComplete: function(exitCode, config, capabilities, results) {
-    // },
-    // onComplete: async function() {
-    //     const reportError = new Error('Could not generate Allure report')
-    //     const generation = allure(['generate', 'allure-results', '--clean'])
-
-    //     return await new Promise(async (resolve, reject) => {
-    //         const generationTimeout = setTimeout(
-    //             () => reject(reportError),
-    //             5000)
-    //         exec('cp -R allure-report/history allure-results');
-    //         generation.on('exit', function(exitCode) {
-    //             clearTimeout(generationTimeout)
-
-    //             if (exitCode !== 0) {
-    //                 return reject(reportError)
-    //             }
-
-    //             console.log('Allure report successfully generated')
-    //             resolve()
-    //         });
-    //     })
-    // }
+    }
 };
