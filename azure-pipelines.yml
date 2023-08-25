@@ -4,7 +4,7 @@ trigger:
 - schedule: cron 0 */2 * * *
   branches:
     include:
-    - main  # Замініть це на вашу головну гілку
+    - master  # Замініть це на вашу головну гілку
 
 pr: ubuntu-20.04
 
