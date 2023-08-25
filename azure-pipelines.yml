@@ -1,26 +1,31 @@
 name: $(Date:yyyy-MM-dd) WebUI-Tests
 
-trigger:
-- schedule: cron 0 */2 * * *
+schedules:
+- cron: "0 */2 * * *"
+  displayName: 'Run every 2 hours'
   branches:
     include:
-    - master  # Замініть це на вашу головну гілку
+    - master  # Replace this with your main branch
 
-pr: ubuntu-20.04
+trigger: none
 
-pool:
-  vmImage: 'ubuntu-latest'
+pr:
+  branches:
+    include:
+    - master
+
 jobs:
 - job: BuildAndTest
   displayName: 'Build and Test'
+  pool:
+    vmImage: 'ubuntu-20.04'  # Use Ubuntu 20.04 image
   steps:
-  - task: UseNode@2
+  - task: NodeTool@0
     inputs:
       versionSpec: '18.x'
-      addToPath: true
+      checkLatest: true
   - script: |
-      npm i npm@latest
-      npm ci
+      npm install
       npm run test
       npm run allure:generate
     displayName: 'Install, Test, and Generate report'
