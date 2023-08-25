@@ -1,7 +1,7 @@
-const {config} = require("./wdio.conf");
+import { config as baseConfig } from './wdio.conf';
 
-const chromeConfig = {
-    ...config,
+export const chromeConfig = {
+    ...baseConfig,
     services: [['chromedriver', {chrome: 'latest'}]],
     // services: [['selenium-standalone', { chrome: 'latest' }]],
     capabilities: [{

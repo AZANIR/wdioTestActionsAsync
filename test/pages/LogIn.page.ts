@@ -1,5 +1,5 @@
-const Page = require('./Page');
-const Base = require('./Base.js');
+import Page from './Page';
+import Base from './Base';
 
 const footerSelector = '#page-footer';
 const confirmMessage = "#content p";
@@ -7,22 +7,20 @@ const confirmMessage = "#content p";
 class LogInPage extends Base{
     async getPageText(){
         await browser.pause(10000);
-        return await Page.getElementText("body");
+        return await Page.getText("body");
     }
     async getMessageText(){
-        return await Page.getElementText(confirmMessage)
+        return await Page.getText(confirmMessage)
     }
-    //#region //links
     async isLinkDisplayed(linkSelector){
         return await Page.isElementDisplayed(linkSelector);
     }
     async getLinkText(linkSelector){
-        return await Page.getElementText(linkSelector);
+        return await Page.getText(linkSelector);
     }
     async getFooterText(){
-        return await Page.getElementText(footerSelector);
+        return await Page.getText(footerSelector);
     }
-    //#endregion
 }
 
-module.exports = new LogInPage();
+export default new LogInPage();

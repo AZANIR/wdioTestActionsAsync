@@ -1,7 +1,7 @@
-const {config} = require("./wdio.conf");
-require("path");
-const chromeHeadlessConfig = {
-    ...config,
+import { config as baseConfig } from './wdio.conf';
+
+export const chromeHeadlessConfig = {
+    ...baseConfig,
     services: [['edgedriver', {chromiumedge: 'latest'}]], // https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/
     capabilities: [{
         maxInstances: 2,
@@ -12,8 +12,6 @@ const chromeHeadlessConfig = {
         },
     }],
     logLevel: 'warn',
-
-    path: "/wd/hub",
 
 };
 

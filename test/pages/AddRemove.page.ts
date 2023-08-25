@@ -1,5 +1,5 @@
-const Page = require('./Page');
-const Base = require('./Base.js');
+import Page from "./Page";
+import Base from "./Base";
 
 const addButton = "//button[text()='Add Element']";
 const deleteBtn = "#elements button";
@@ -18,5 +18,4 @@ class AddRemovePage extends Base{
     await Page.click(deleteBtn);
   }
 }
-
-module.exports = new AddRemovePage();
+export default new AddRemovePage();

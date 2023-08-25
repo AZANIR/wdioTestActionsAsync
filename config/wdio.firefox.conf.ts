@@ -1,9 +1,7 @@
-const {
-    config
-} = require("./wdio.conf");
+import { config as baseConfig } from './wdio.conf';
 
-const firefoxConfig = {
-    ...config,
+export const firefoxConfig = {
+    ...baseConfig,
     // services: [['selenium-standalone', {firefox: 'latest'}]], // https://github.com/mozilla/geckodriver/releases
     services: [['geckodriver', {firefox: 'latest'}]],
     capabilities: [{
@@ -15,8 +13,7 @@ const firefoxConfig = {
                 "--height=1000"]
         },
     }],
-    "windowSize": "maximize",
-    path: "/wd/hub",
+    "windowSize": "maximize"
 };
 
 exports.config = firefoxConfig;

@@ -1,18 +1,15 @@
-// const video = require('wdio-video-reporter');
-
-exports.config = {
-    //
-    specs: [
-        './test/specs/**/*.spec.js'
-    ],
-    suites: {
-        superuser: [
-            './test/specs/**/*.spec.js'
-        ],
-        testAdmin: [
-            './test/specs/**/*.spec.js'
-        ]
+export const config = {
+    runner: "local",
+    autoCompileOpts: {
+        autoCompile: true,
+        tsNodeOpts: {
+            project: "./tsconfig.json",
+            transpileOnly: true,
+        },
     },
+    specs: [
+        '../test/specs/**/*.spec.ts'
+      ],
     // Patterns to exclude.
     exclude: [
         // 'path/to/excluded/002_Files'
@@ -64,11 +61,6 @@ exports.config = {
     // =====
     // Hooks
     // =====
-    beforeSession: async function () {
-        require('expect-webdriverio').setOptions({
-            wait: 5000
-        });
-    },
     before: async function (capabilities, specs, browser) {
         await browser.setWindowSize(1920, 1080);
         // await browser.setTimeout({ 'pageLoad': 35000 });

@@ -1,7 +1,7 @@
-const { config } = require("./wdio.conf");
+import { config as baseConfig } from './wdio.conf';
 
-const firefoxHeadlessConfig = {  
-    ...config,
+export const firefoxHeadlessConfig = {  
+    ...baseConfig,
     services: [['chromedriver', {chrome: 'latest'}],['geckodriver', {firefox: 'latest'}]],
     capabilities: [    
         {      
@@ -21,9 +21,7 @@ const firefoxHeadlessConfig = {
                 excludeSwitches: ['--enable-logging']
             }
         }
-    ],  
-
-    path: "/wd/hub",  
+    ]
     
 };
 
