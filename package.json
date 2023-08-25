@@ -31,7 +31,8 @@
     "allure-report",
     "webdriverio",
     "wdio",
-    "github-actions"
+    "github-actions",
+    "junit-reporter"
   ],
   "author": "AZANIR",
   "license": "MIT",
@@ -45,13 +46,14 @@
     "@wdio/spec-reporter": "^7.25.4",
     "allure-commandline": "^2.20.0",
     "chromedriver": "^109.0.0",
-    "geckodriver": "^3.2.0",
     "edgedriver": "^4.17134.1",
+    "geckodriver": "^3.2.0",
     "wdio-chromedriver-service": "^8.0.0",
     "wdio-edgedriver-service": "^2.0.0",
     "wdio-geckodriver-service": "^4.0.0"
   },
   "dependencies": {
+    "@wdio/junit-reporter": "^8.15.6",
     "chai": "^4.3.7",
     "cross-env": "^7.0.3",
     "mocha": "^10.1.0",
