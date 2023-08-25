@@ -1,198 +1,26 @@
-name: '$(Date:yyyy-MM-dd) WebUI-Tests'
+name: $(Date:yyyy-MM-dd) WebUI-Tests
 
-schedules:
-  - cron: "0 0,6,12,18 * * *"
-    displayName: trigger 4 times a day
-    branches:
-      include:
-        - main
-    always: true
-
-resources:
-  pipelines:
-    - pipeline: msbmi-design-platform-pipeline
-      source: MobisysGmbH.msbmi-design-platform
-      version: "768 2023-06-13"
-      branch: main # default branch when pipeline is triggered manually or scheduled.
-      trigger:
-        enabled: false
-        branches:
-          - main
-
-  repositories:
-    - repository: devops
-      type: github
-      name: MobisysGmbh/devops-templates
-      endpoint: MobisysGmbH
-      ref: refs/heads/release/v6
-
-parameters:
-  - name: containerRegistrySource
-    displayName: Use container registry of dev or qa (default) images
-    type: string
-    default: qa
-    values:
-      - dev
-      - qa
-
-variables:
-  - group: nova_testautomation
-  - name: designPlatformPipelineArtifacts
-    value: "$(Pipeline.Workspace)/msbmi-design-platform-pipeline/deploy"
-  - template: /yaml/common/variables.yml@devops
-  - name: acr
-    value: crmobisysdesignplatform${{ parameters.containerRegistrySource }}
-  - name: design-platform-base-url
-    value: "http://dev-docker2.mobisys.org"
-
-# trigger build for commits on following branches
 trigger:
- branches:
+- schedule: cron 0 */2 * * *
+  branches:
     include:
-      - main
-pr: none
+    - main  # Замініть це на вашу головну гілку
 
-stages:
-  - stage: Test
-    jobs:
-      - job: WebUI_Tests
-        displayName: Run WebUI-Tests
-        pool: # use internal agent
-          name: Docker
-          demands:
-            - Agent.Name -equals dev-docker2-agent1
+pr: ubuntu-20.04
 
-        steps:
-          - download: msbmi-design-platform-pipeline
-            artifact: deploy
-            #patterns: '**/*'  # mini match pattern to download specific files, optional; defaults to all files.
-
-          - task: NodeTool@0
-            inputs:
-              versionSpec: "19.x"
-              checkLatest: true
-
-          - pwsh: |
-              npm i
-            displayName: Setup test framework
-
-          # install SUT (find free port)
-          - task: AzureCLI@2
-            displayName: Prepare SUT (ACR-${{ parameters.containerRegistrySource }})
-            inputs:
-              useGlobalConfig: true
-              azureSubscription: $(commonVariableAzureSubscriptionDEVQA-AZ)
-              scriptType: 'pscore'
-              scriptLocation: 'inlineScript'
-              failOnStandardError: false
-              inlineScript: |
-                $env:BACKEND_API_URL = "$(design-platform-base-url)"
-                $env:FESERVER_PORT=9102
-                $env:WEBFRONTEND_PORT=9002
-
-                $buildName = "$(resources.pipeline.msbmi-design-platform-pipeline.runName)"
-                $buildcounter = $buildName.Substring(0, $buildName.IndexOf(" "))
-                $env:BUILDCOUNTER = $buildcounter
-
-                Write-Output "Test build $($env:BUILDCOUNTER)"
-
-                Write-Output "Deploy to Webtest-Staging System"
-                az acr login --name "$(acr)"
-                docker-compose -f $(designPlatformPipelineArtifacts)/docker-compose.ci.yaml `
-                    --env-file $(designPlatformPipelineArtifacts)/.env.${{ parameters.containerRegistrySource }} `
-                    up --detach --force-recreate
-
-                docker logout
-
-          - pwsh: |
-              npm run ci:test:chrome
-              npm run ci:test:edge
-              npm run ci:test:firefox
-              npm run ci:test:safari
-
-              npm run allure:generate
-
-            displayName: Run WebUI Tests
-            env:
-              MSBMI_WEB_BASE_URL: $(design-platform-base-url):9002
-              MSBMI_WEB_USER_LOGIN: $(sap_testautomation_username)
-              MSBMI_WEB_USER_PASSWORD: $(sap_testautomation_username_password)
-              MSBMI_WEB_ADMIN_LOGIN: $(design_platform_adminlogin_username)
-              MSBMI_WEB_ADMIN_PASSWORD: $(design_platform_adminlogin_username_password)
-              MSBMI_WEB_NAME: "TST"                          # SAP SYSTEM ID displayname
-              MSBMI_WEB_HOST: "dev-sapMT9.mobisys.org"       # SAP System Url
-              MSBMI_WEB_PORT: "443"                          # SAP System Port
-              MSBMI_WEB_SERVICE: "/MSBMI/MI_DES"             # SAP Design Platform Service Name
-              MSBMI_WEB_CLIENT: "800"                        # SAP Mandant
-
-          #delete volumes during docker-compose down command
-          - task: AzureCLI@2
-            condition: always()
-            displayName: Cleanup SUT (ACR-${{ parameters.containerRegistrySource }})
-            inputs:
-              useGlobalConfig: true
-              azureSubscription: $(commonVariableAzureSubscriptionDEVQA-AZ)
-              scriptType: 'pscore'
-              scriptLocation: 'inlineScript'
-              failOnStandardError: false
-              inlineScript: |
-                $buildName = "$(resources.pipeline.msbmi-design-platform-pipeline.runName)"
-                $buildcounter = $buildName.Substring(0, $buildName.IndexOf(" "))
-                $env:BUILDCOUNTER = $buildcounter
-
-                Write-Output "Test build $($env:BUILDCOUNTER)"
-
-                Write-Output "Deploy to Webtest-Staging System"
-                az acr login --name "$(acr)"
-                docker-compose -f $(designPlatformPipelineArtifacts)/docker-compose.ci.yaml `
-                    --env-file $(designPlatformPipelineArtifacts)/.env.${{ parameters.containerRegistrySource }} `
-                    down --rmi all --volumes
-
-                docker logout
-
-          - task: PublishTestResults@2
-            displayName: "Publish Test Results"
-            condition: always()
-            inputs:
-              testResultsFormat: 'JUnit'
-              testResultsFiles: '**/junit-results/**/*'
-              searchFolder: '$(Build.SourcesDirectory)'
-              mergeTestResults: false
-              failTaskOnFailedTests: true
-
-          - task: CopyFiles@2
-            displayName: Collect junit-results
-            condition: always()
-            inputs:
-              sourceFolder: '$(Build.SourcesDirectory)'
-              contents: '**/junit-results/**'
-              flattenFolders: true
-              targetFolder: '$(Build.ArtifactStagingDirectory)/junit-results/'
-
-          - task: CopyFiles@2
-            displayName: Collect allure-report
-            condition: always()
-            inputs:
-              sourceFolder: '$(Build.SourcesDirectory)/allure-report/'
-              contents: '**'
-              targetFolder: '$(Build.ArtifactStagingDirectory)/allure-report/'
-
-          - task: PublishBuildArtifacts@1
-            displayName: Save junit-results
-            condition: always()
-            inputs:
-              pathToPublish: '$(Build.ArtifactStagingDirectory)/junit-results/'
-              artifactName: junit-reports
-
-          - pwsh: |
-                Compress-Archive -Path "$(Build.ArtifactStagingDirectory)/allure-report/" `
-                    -DestinationPath "$(Build.ArtifactStagingDirectory)/allure-report-$(Build.BuildId).zip"
-            displayName: Archive allure-report
-            condition: always()
-
-          - task: PublishBuildArtifacts@1
-            displayName: Save allure-report
-            condition: always()
-            inputs:
-              pathToPublish: '$(Build.ArtifactStagingDirectory)/allure-report-$(Build.BuildId).zip'
-              artifactName: allure-report
+pool:
+  vmImage: 'ubuntu-latest'
+jobs:
+- job: BuildAndTest
+  displayName: 'Build and Test'
+  steps:
+  - task: UseNode@2
+    inputs:
+      versionSpec: '18.x'
+      addToPath: true
+  - script: |
+      npm i npm@latest
+      npm ci
+      npm run test
+      npm run allure:generate
+    displayName: 'Install, Test, and Generate report'
