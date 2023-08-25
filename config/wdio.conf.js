@@ -42,6 +42,14 @@ exports.config = {
         //     saveAllVideos: false,       // If true, also saves videos for successful test cases
         //     videoSlowdownMultiplier: 3, // Higher to get slower videos, lower for faster videos [Value 1-100]
         // }],
+        "spec",
+        ['junit', {
+            outputDir: './junit-results',
+            outputFileFormat: function(options) { // optional
+                // options.cid has to be set else the xml gets damaged by parallel test execution
+                return `results-${options.cid}.${options.capabilities.browserName}.xml`
+            }
+        }],
         ['allure', {
             outputDir: 'allure-results',
             disableWebdriverStepsReporting: true,

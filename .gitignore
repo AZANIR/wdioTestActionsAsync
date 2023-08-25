@@ -3,3 +3,4 @@ node_modules/
 .idea
 allure-report/
 allure-results/
+reports/
