@@ -20,7 +20,7 @@ describe('Check login page defaults', () => {
         await expect(await LogInPage.getHeaderText(h2Header)).contain('Available Examples');
     });
     it('Ispect footer text', async () => {
-        await expect(await LogInPage.getFooterText()).contain('Powered by Elemental Selenium222');
+        await expect(await LogInPage.getFooterText()).contain('Powered by Elemental Selenium');
 
     });
     it('Verify Footer link', async ()=>{
